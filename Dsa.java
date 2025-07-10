@@ -68,36 +68,72 @@
 //     }
 
 // }
+
+
+// import java.util.*;
+
+// public class Dsa {
+//     public static int longestConsecutive(int[] nums) {
+//         HashSet<Integer> set = new HashSet<>();
+//         for (int num : nums) {
+//             set.add(num);
+//         }
+
+//         int longestStreak = 0;
+
+//         for (int num : nums) {
+//             if (!set.contains(num - 1)) {
+//                 int currentNum = num;
+//                 int currentStreak = 1;
+
+//                 while (set.contains(currentNum + 1)) {
+//                     currentNum++;
+//                     currentStreak++;
+//                 }
+
+//                 longestStreak = Math.max(longestStreak, currentStreak);
+//             }
+//         }
+
+//         return longestStreak;
+//     }
+
+//     public static void main(String[] args) {
+//         int[] input = {100, 4, 200, 1,2,3,5};
+//         System.out.println("Longest Consecutive Sequence: " + longestConsecutive(input));
+//     }
+// }
+
+
+
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
 import java.util.*;
-
-public class Dsa {
-    public static int longestConsecutive(int[] nums) {
-        HashSet<Integer> set = new HashSet<>();
-        for (int num : nums) {
-            set.add(num);
-        }
-
-        int longestStreak = 0;
-
-        for (int num : nums) {
-            if (!set.contains(num - 1)) {
-                int currentNum = num;
-                int currentStreak = 1;
-
-                while (set.contains(currentNum + 1)) {
-                    currentNum++;
-                    currentStreak++;
-                }
-
-                longestStreak = Math.max(longestStreak, currentStreak);
-            }
-        }
-
-        return longestStreak;
+class Dsa {
+    public static void methodone(int arr1[],int arr2[])
+    {
+         HashSet<Integer> h1=new HashSet<>();
+         HashSet<Integer> h2=new HashSet<>();
+         for(int num:arr1)
+         {
+             h1.add(num);
+         }
+         for(int num:arr2)
+         {
+             h2.add(num);
+         }
+        //  h1.retainAll(h2);
+        //  System.out.println(h1);
+        // h1.removeAll(h2);
+        // h2.removeAll(h1);
+        h1.addAll(h2);
+        System.out.println(h1);
     }
-
+   
     public static void main(String[] args) {
-        int[] input = {100, 4, 200, 1,2,3,5};
-        System.out.println("Longest Consecutive Sequence: " + longestConsecutive(input));
+        int arr1[]={1,2,1,3,4,6};
+        int arr2[]={3,7,8,5,9,6};
+        methodone(arr1,arr2);
+        
     }
 }
