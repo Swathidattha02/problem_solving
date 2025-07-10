@@ -41,30 +41,63 @@
 // }
 
 
-import java.util.*;
-class Dsa
-{
-    public static void main(String args[])
-    {
-        Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        System.out.println("the number is :"+ n);
-        // int rev=0;
-        // while(n!=0)
-        // {
-        //     rev=rev*10 + n%10;
-        //     n=n/10;
+// import java.util.*;
+// class Dsa
+// {
+//     public static void main(String args[])
+//     {
+//         Scanner sc=new Scanner(System.in);
+//         int n=sc.nextInt();
+//         System.out.println("the number is :"+ n);
+//         int rev=0;
+//         while(n!=0)
+//         {
+//             rev=rev*10 + n%10;
+//             n=n/10;
             
-        // }
-        // StringBuffer st=new StringBuffer(String.valueOf(n));
-        // StringBuffer rev=st.reverse();
-        // System.out.println("the reversed number is :"+ rev);
+//         }
+//         StringBuffer st=new StringBuffer(String.valueOf(n));
+//         StringBuffer rev=st.reverse();
+//         System.out.println("the reversed number is :"+ rev);
 
-        StringBuilder sb=new StringBuilder();
-        sb.append(n);
-        StringBuilder rev=sb.reverse();
-        System.out.println("the reversed number is :"+ rev);
+//         StringBuilder sb=new StringBuilder();
+//         sb.append(n);
+//         StringBuilder rev=sb.reverse();
+//         System.out.println("the reversed number is :"+ rev);
 
+//     }
+
+// }
+import java.util.*;
+
+public class Dsa {
+    public static int longestConsecutive(int[] nums) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            set.add(num);
+        }
+
+        int longestStreak = 0;
+
+        for (int num : nums) {
+            if (!set.contains(num - 1)) {
+                int currentNum = num;
+                int currentStreak = 1;
+
+                while (set.contains(currentNum + 1)) {
+                    currentNum++;
+                    currentStreak++;
+                }
+
+                longestStreak = Math.max(longestStreak, currentStreak);
+            }
+        }
+
+        return longestStreak;
     }
 
+    public static void main(String[] args) {
+        int[] input = {100, 4, 200, 1,2,3,5};
+        System.out.println("Longest Consecutive Sequence: " + longestConsecutive(input));
+    }
 }
