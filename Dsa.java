@@ -106,34 +106,61 @@
 
 
 
-// Online Java Compiler
-// Use this editor to write, compile and run your Java code online
-import java.util.*;
-class Dsa {
-    public static void methodone(int arr1[],int arr2[])
-    {
-         HashSet<Integer> h1=new HashSet<>();
-         HashSet<Integer> h2=new HashSet<>();
-         for(int num:arr1)
-         {
-             h1.add(num);
-         }
-         for(int num:arr2)
-         {
-             h2.add(num);
-         }
-        //  h1.retainAll(h2);
-        //  System.out.println(h1);
-        // h1.removeAll(h2);
-        // h2.removeAll(h1);
-        h1.addAll(h2);
-        System.out.println(h1);
-    }
+
+
+// import java.util.*;
+// class Dsa {
+//     public static void methodone(int arr1[],int arr2[])
+//     {
+//          HashSet<Integer> h1=new HashSet<>();
+//          HashSet<Integer> h2=new HashSet<>();
+//          for(int num:arr1)
+//          {
+//              h1.add(num);
+//          }
+//          for(int num:arr2)
+//          {
+//              h2.add(num);
+//          }
+//          h1.retainAll(h2);
+//          System.out.println(h1);
+//         h1.removeAll(h2);
+//         h2.removeAll(h1);
+//         h1.addAll(h2);
+//         System.out.println(h1);
+//     }
    
-    public static void main(String[] args) {
-        int arr1[]={1,2,1,3,4,6};
-        int arr2[]={3,7,8,5,9,6};
-        methodone(arr1,arr2);
+//     public static void main(String[] args) {
+//         int arr1[]={1,2,1,3,4,6};
+//         int arr2[]={3,7,8,5,9,6};
+//         methodone(arr1,arr2);
         
+//     }
+// }
+
+
+import java.util.HashSet;
+
+class Dsa {
+    public static boolean isAnagramUsingHashSet(String str1, String str2) 
+    {
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
+        HashSet<Character> set1 = new HashSet<>();
+        HashSet<Character> set2 = new HashSet<>();
+        for (char c : str1.toCharArray()) {
+            set1.add(c);
+        }
+        for (char c : str2.toCharArray()) {
+             set2.add(c);
+        }
+        return set1.equals(set2);
+    }
+
+    public static void main(String[] args) {
+        String str1 = "listen";
+        String str2 = "silent";
+
+        System.out.println(isAnagramUsingHashSet(str1, str2));  
     }
 }
