@@ -167,32 +167,49 @@
 
 
 
-import java.util.*;
+// import java.util.*;
+
+// class Dsa{
+//     public static ArrayList<Integer> findUnion(int[] a, int[] b) {
+//         ArrayList<Integer> hs = new ArrayList<>();
+
+//         for (int i = 0; i < a.length; i++) {
+//             if (!hs.contains(a[i])) {
+//                 hs.add(a[i]);
+//             }
+//         }
+
+//         for (int i = 0; i < b.length; i++) {
+//             if (!hs.contains(b[i])) {
+//                 hs.add(b[i]);
+//             }
+//         }
+
+//         Collections.sort(hs);
+//         return hs;
+//     }
+//     public static void main(String[] args) {
+//         int[] a = {1, 2, 3, 4};
+//         int[] b = {3, 4, 5, 6};
+
+//         ArrayList<Integer> result = findUnion(a, b);
+//         System.out.println("Union: " + result);
+//     }
+// }
+
+
+
 
 class Dsa{
-    public static ArrayList<Integer> findUnion(int[] a, int[] b) {
-        ArrayList<Integer> hs = new ArrayList<>();
-
-        for (int i = 0; i < a.length; i++) {
-            if (!hs.contains(a[i])) {
-                hs.add(a[i]);
-            }
-        }
-
-        for (int i = 0; i < b.length; i++) {
-            if (!hs.contains(b[i])) {
-                hs.add(b[i]);
-            }
-        }
-
-        Collections.sort(hs);
-        return hs;
-    }
     public static void main(String[] args) {
-        int[] a = {1, 2, 3, 4};
-        int[] b = {3, 4, 5, 6};
-
-        ArrayList<Integer> result = findUnion(a, b);
-        System.out.println("Union: " + result);
+        String str1[]={"hello","good"};
+        String str2[]={"world","morning"};
+        String str[]=new String[str1.length];
+        for(int i=0;i<str1.length;i++)
+        {
+            str[i] = str1[i]+" "+str2[i];
+            System.out.println(str[i]);
+        }
+        
     }
 }
