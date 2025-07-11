@@ -139,28 +139,60 @@
 // }
 
 
-import java.util.HashSet;
+// import java.util.HashSet;
 
-class Dsa {
-    public static boolean isAnagramUsingHashSet(String str1, String str2) 
-    {
-        str1 = str1.toLowerCase();
-        str2 = str2.toLowerCase();
-        HashSet<Character> set1 = new HashSet<>();
-        HashSet<Character> set2 = new HashSet<>();
-        for (char c : str1.toCharArray()) {
-            set1.add(c);
+// class Dsa {
+//     public static boolean isAnagramUsingHashSet(String str1, String str2) 
+//     {
+//         str1 = str1.toLowerCase();
+//         str2 = str2.toLowerCase();
+//         HashSet<Character> set1 = new HashSet<>();
+//         HashSet<Character> set2 = new HashSet<>();
+//         for (char c : str1.toCharArray()) {
+//             set1.add(c);
+//         }
+//         for (char c : str2.toCharArray()) {
+//              set2.add(c);
+//         }
+//         return set1.equals(set2);
+//     }
+
+//     public static void main(String[] args) {
+//         String str1 = "listen";
+//         String str2 = "silent";
+
+//         System.out.println(isAnagramUsingHashSet(str1, str2));  
+//     }
+// }
+
+
+
+import java.util.*;
+
+class Dsa{
+    public static ArrayList<Integer> findUnion(int[] a, int[] b) {
+        ArrayList<Integer> hs = new ArrayList<>();
+
+        for (int i = 0; i < a.length; i++) {
+            if (!hs.contains(a[i])) {
+                hs.add(a[i]);
+            }
         }
-        for (char c : str2.toCharArray()) {
-             set2.add(c);
+
+        for (int i = 0; i < b.length; i++) {
+            if (!hs.contains(b[i])) {
+                hs.add(b[i]);
+            }
         }
-        return set1.equals(set2);
+
+        Collections.sort(hs);
+        return hs;
     }
-
     public static void main(String[] args) {
-        String str1 = "listen";
-        String str2 = "silent";
+        int[] a = {1, 2, 3, 4};
+        int[] b = {3, 4, 5, 6};
 
-        System.out.println(isAnagramUsingHashSet(str1, str2));  
+        ArrayList<Integer> result = findUnion(a, b);
+        System.out.println("Union: " + result);
     }
 }
