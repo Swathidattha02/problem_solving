@@ -200,16 +200,59 @@
 
 
 
-class Dsa{
-    public static void main(String[] args) {
-        String str1[]={"hello","good"};
-        String str2[]={"world","morning"};
-        String str[]=new String[str1.length];
-        for(int i=0;i<str1.length;i++)
-        {
-            str[i] = str1[i]+" "+str2[i];
-            System.out.println(str[i]);
-        }
+// class Dsa{
+//     public static void main(String[] args) {
+//         String str1[]={"hello","good"};
+//         String str2[]={"world","morning"};
+//         String str[]=new String[str1.length];
+//         for(int i=0;i<str1.length;i++)
+//         {
+//             str[i] = str1[i]+" "+str2[i];
+//             System.out.println(str[i]);
+//         }
         
+//     }
+// }
+
+class Dsa
+{
+    public static int[] common(int arr1[],int arr2[])
+    {
+        int[] temp = new int[100];
+        int count = 0;
+        for(int i = 0; i < arr1.length; i++)
+        {
+            for(int j=0;j<arr2.length;j++)
+            {
+                if(arr1[i]==arr2[j])
+                {
+                    boolean found = false;
+                    for(int k=0;k<count;k++)
+                    {
+                        if(temp[k]==arr1[i])
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+                    if(!found)
+                    {
+                        temp[count] = arr1[i];
+                        count++;
+                    }
+                }
+            }
+        }
+        int[] result = new int[count];
+        System.arraycopy(temp, 0, result, 0, count);
+        return result;
+    }
+    public static void main(String args[])
+    {
+        int arr1[]={1,2,3,4,5,6,2,1,3};
+        int arr2[]={6,7,8,9,10,1,2,3,4,5};
+        System.out.println(common(arr1,arr2));
+        int[] commonnumbers = common(arr1, arr2); 
+        System.out.println(java.util.Arrays.toString(commonnumbers));
     }
 }
