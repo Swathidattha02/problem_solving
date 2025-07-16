@@ -279,7 +279,7 @@
 //     }
 // }
 
-
+//number of occuraces of each word in an array
 class Dsa {
     public static void main(String[] args) {
         String arr[] = {"apple", "banana", "apple", "orange", "banana", "apple"};
