@@ -259,22 +259,48 @@
 
 
 
-import java.util.*;
-class Dsa{
+// import java.util.*;
+// class Dsa{
+//     public static void main(String[] args) {
+//         System.out.println("Try programiz.pro");
+//         HashMap<String, Integer> h1 = new HashMap<>();
+//         String arr[]={"apple", "banana", "apple", "orange", "banana", "apple"};
+//         for(String word:arr)
+//         {
+//            if (h1.containsKey(word)) {
+//                 h1.put(word, h1.get(word)+1); 
+//             } else {
+//                 h1.put(word, 1); 
+//             }
+//         }
+//        for (String key : h1.keySet()) {
+//             System.out.println(key + " : " + h1.get(key));
+//         }
+//     }
+// }
+
+
+class Dsa {
     public static void main(String[] args) {
-        System.out.println("Try programiz.pro");
-        HashMap<String, Integer> h1 = new HashMap<>();
-        String arr[]={"apple", "banana", "apple", "orange", "banana", "apple"};
-        for(String word:arr)
-        {
-           if (h1.containsKey(word)) {
-                h1.put(word, h1.get(word)+1); 
-            } else {
-                h1.put(word, 1); 
+        String arr[] = {"apple", "banana", "apple", "orange", "banana", "apple"};
+
+        boolean visited[] = new boolean[arr.length]; 
+        for (int i = 0; i < arr.length; i++) {
+            if (visited[i]) {
+                continue; 
             }
-        }
-       for (String key : h1.keySet()) {
-            System.out.println(key + " : " + h1.get(key));
+            int count = 1;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i].equals(arr[j]))
+                { 
+                    count++;
+                    visited[j] = true; 
+                }
+            }
+
+            System.out.println(arr[i] + " : " + count);
         }
     }
 }
+
+
