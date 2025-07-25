@@ -1,3 +1,4 @@
+# problemsolving/Problems.py
 def add_binary_ones_complement(a, b):
     # Make both strings same length by adding leading 0s
     if len(a) < len(b):
@@ -59,3 +60,4 @@ if final_check == '0' * len(checksum):
     print("✅ No Error. Message accepted.")
 else:
     print("❌ Error detected.")
+
