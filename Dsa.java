@@ -280,27 +280,52 @@
 // }
 
 //number of occuraces of each word in an array
-class Dsa {
-    public static void main(String[] args) {
-        String arr[] = {"apple", "banana", "apple", "orange", "banana", "apple"};
+// class Dsa {
+//     public static void main(String[] args) 
+//     {
+//         String arr[] = {"apple", "banana", "apple", "orange", "banana", "apple"};
+//         boolean visited[] = new boolean[arr.length]; 
+//         for (int i = 0; i < arr.length; i++)
+//         {
+//             if (visited[i]) {
+//                 continue; 
+//             }
+//             int count = 1;
+//             for (int j = i + 1; j < arr.length; j++) {
+//                 if (arr[i].equals(arr[j]))
+//                 { 
+//                     count++;
+//                     visited[j] = true; 
+//                 }
+//             }
+//             System.out.println(arr[i] + " : " + count);
+//         }
+//     }
+// }
 
-        boolean visited[] = new boolean[arr.length]; 
-        for (int i = 0; i < arr.length; i++) {
-            if (visited[i]) {
-                continue; 
-            }
-            int count = 1;
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i].equals(arr[j]))
-                { 
-                    count++;
-                    visited[j] = true; 
-                }
-            }
+import java.util.Arrays;
 
-            System.out.println(arr[i] + " : " + count);
+class Dsa
+{
+    public static int[] rotateArray(int[] arr, int n)
+    {
+        int[] rotated = new int[arr.length];
+        n = n % arr.length; 
+        for (int i = 0; i < arr.length; i++) 
+        {
+            int newIndex = (i + n) % arr.length;
+            rotated[newIndex] = arr[i];
         }
+    return rotated;
     }
+    public static void main(String[] args)
+    {
+        int[] arr7 = {1, 2, 3, 4, 5};
+        int n = 2;
+        int[] rotated = rotateArray(arr7, n);
+        System.out.println("Input: " + Arrays.toString(arr7) + ", n = " + n);
+        System.out.println("Output: " + Arrays.toString(rotated));
+        System.out.println();
+    }
+    
 }
-
-
