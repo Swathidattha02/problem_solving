@@ -303,29 +303,50 @@
 //     }
 // }
 
-import java.util.Arrays;
+// import java.util.Arrays;
 
-class Dsa
-{
-    public static int[] rotateArray(int[] arr, int n)
-    {
-        int[] rotated = new int[arr.length];
-        n = n % arr.length; 
-        for (int i = 0; i < arr.length; i++) 
-        {
-            int newIndex = (i + n) % arr.length;
-            rotated[newIndex] = arr[i];
-        }
-    return rotated;
-    }
+// class Dsa
+// {
+//     public static int[] rotateArray(int[] arr, int n)
+//     {
+//         int[] rotated = new int[arr.length];
+//         n = n % arr.length; 
+//         for (int i = 0; i < arr.length; i++) 
+//         {
+//             int newIndex = (i + n) % arr.length;
+//             rotated[newIndex] = arr[i];
+//         }
+//     return rotated;
+//     }
+//     public static void main(String[] args)
+//     {
+//         int[] arr7 = {1, 2, 3, 4, 5};
+//         int n = 2;
+//         int[] rotated = rotateArray(arr7, n);
+//         System.out.println("Input: " + Arrays.toString(arr7) + ", n = " + n);
+//         System.out.println("Output: " + Arrays.toString(rotated));
+//         System.out.println();
+//     }
+    
+// }
+
+class Dsa {
     public static void main(String[] args)
     {
-        int[] arr7 = {1, 2, 3, 4, 5};
-        int n = 2;
-        int[] rotated = rotateArray(arr7, n);
-        System.out.println("Input: " + Arrays.toString(arr7) + ", n = " + n);
-        System.out.println("Output: " + Arrays.toString(rotated));
-        System.out.println();
+       int arr[] = {1, 2, 3, 1, 4, 5};
+       System.out.println("Contains duplicates: " + duplicates(arr));
     }
-    
+    public static boolean duplicates(int[] arr) {
+        for (int i = 0; i < arr.length; i++) 
+        {
+            for (int j = i + 1; j < arr.length; j++) 
+            {
+                if (arr[i] == arr[j]) 
+                {
+                   return  true;  
+                }
+            }
+        }
+        return false;
+    }
 }
