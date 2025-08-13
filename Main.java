@@ -1,6 +1,6 @@
 // Online Java Compiler
 // Use this editor to write, compile and run your Java code online
-import java.util.Arrays;
+import java.util.*;
 class Main {
     public static int[] fun(int arr[],int tar)
     {
@@ -19,10 +19,26 @@ class Main {
         }
         return arr1;
     }
+    public static int[] fun2(int arr[],int tar)
+    {
+        Set<Integer> st=new HashSet<>();
+        for(int i=0;i<arr.length;i++)
+        {
+            int com=tar-arr[i];
+            if(st.contains(com))
+            {
+                return new int[]{arr[i],com};
+            }
+            st.add(arr[i]);
+
+        }
+
+        return new int[]{-1,-1};
+    }
     public static void main(String[] args) {
         int arr[]={2,4,7,8,9};
         int tar=9;
-        int res[]=fun(arr,tar);
+        int res[]=fun2(arr,tar);
         System.out.println("the two indices are"+Arrays.toString(res));
     }
 }
